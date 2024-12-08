@@ -1,15 +1,12 @@
 package com.infosys.carRentalSystem.dao;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import com.infosys.carRentalSystem.bean.Car;
-import com.infosys.carRentalSystem.dao.CarRepository;
-import com.infosys.carRentalSystem.dao.CarDao;
 @Service
 @Repository
 public class CarDaoImpl implements CarDao{

@@ -155,7 +155,7 @@
     </header>
 
     <div class="form-container">
-        <form:form id="registrationForm" method="post" action="/register" modelAttribute="userRecord">
+        <form:form id="registrationForm" method="post" action="/register" modelAttribute="userRecord" class="form-container">
             <h2>Register New User</h2>
 
             <label>Enter User ID:</label>
@@ -171,11 +171,11 @@
             <form:input path="email" class="input-field" id="email"/>
 
             <label>Select User Type:</label>
-            <form:input list="types" name="type" id="type" path="role" class="input-field"/>
-            <datalist id="types">
-                <option value="Customer"/>
-                <option value="Admin"/>
-            </datalist>
+            <form:select path="role" class="input userType">
+                    <form:option value="" label="Select User Type" disabled="true"/>
+                    <form:option value="Customer" label="Customer"/>
+                    <form:option value="Admin" label="Admin"/>
+                </form:select>
 
             <button type="button" onclick="validateEntries();">Submit</button>
             <button type="reset">Reset</button>

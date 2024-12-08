@@ -8,10 +8,11 @@
 </head>
 <body>
     
-    <div align ="center"></div>
-        <h1><u>Car Update Page</u></h1>
+    <div align ="center">
+        <h1>Car Update Page</h1>
         <form:form action="/carUpdate" method="post" modelAttribute="carRecord">
         <form:hidden path="carNumber"/>
+         <form:hidden path="available" />
         <form:hidden path="carName"/>
         <form:hidden path="carColor"/>
         <form:hidden path="manufacturer"/>
@@ -33,6 +34,10 @@
 			<br/><br/>
            Enter New Availability Status:<form:input path="available"/>
 			<br/><br/>
+			 <div class="variantIdContainer">
+                <label class="label" for="variantId">Variant Id:</label>
+                <form:input path="variantId" id="variantId" class="input" placeholder="Variant Id" disabled="true"/>
+            </div>
             <div class="button-container">
                 <button type="submit">Submit</button>
                 <button type="reset">Reset</button>

@@ -23,9 +23,9 @@ public class CarUserService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
     	CarUser carUser = repository.findById(username).get();
-    	role = carUser.getRole();
-    	userName=carUser.getUsername();
-    	email=carUser.getEmail();
+    	this.role = carUser.getRole();
+    	this.userName=carUser.getUsername();
+    	this.email=carUser.getEmail();
     	return carUser;
     }
     public String getRole() {

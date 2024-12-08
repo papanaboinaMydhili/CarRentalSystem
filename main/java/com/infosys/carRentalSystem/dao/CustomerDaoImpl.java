@@ -1,14 +1,13 @@
 package com.infosys.carRentalSystem.dao;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import com.infosys.carRentalSystem.bean.Customer;
 @Service
-@Repository
 
 public class CustomerDaoImpl implements CustomerDao{
 	@Autowired
@@ -21,7 +20,8 @@ public class CustomerDaoImpl implements CustomerDao{
 	
 	@Override
 	public Customer findById(String id) {
-		return repository.findById(id).get();
+		 Optional<Customer> customer = repository.findById(id);
+	        return customer.orElse(null);
 	}
 	
 	@Override
@@ -36,7 +36,8 @@ public class CustomerDaoImpl implements CustomerDao{
 	
 	@Override
 	public Boolean getCustomerStatusByUsername(String username) {
-		return repository.getCustomerStatusByUsername(username);
+		 Boolean status =  repository.getCustomerStatusByUsername(username);
+	       return status == null || status;
 	}
 	@Override
 	public String getLicenceExpiryDate(String username) {

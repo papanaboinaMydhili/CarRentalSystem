@@ -1,51 +1,52 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="ISO-8859-1">
+    <meta charset="UTF-8">
     <title>Customer Report</title>
 </head>
 <body>
-    <div align="center">
-        <h1><u>Customer Report</u></h1>
+    <div class="main-container" id="customerReportMainContainer">
+        <h1>Customer Report</h1>
         <br/>
-        <h2>
-        <table border="2">
-            <tr>
+        <div class="table-container">
+        <table class="table" border="1">
+            <tr class="table-header">
                 <th>Username</th>
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Address</th>
                 <th>Email</th>
+                <th>Mobile</th>
                 <th>License</th>
                 <th>Expiry Date</th>
-                <th>Mobile</th>
                 <th>Status</th>
-                 <th>Deletion</th>
-                <th>Updation</th>
+                  <th>Actions</th>
             </tr>
             
-            <c:forEach items="${customerList}" var="customer">
-                <tr>
+			<c:forEach items="${customers}" var="customer">
+                <tr class="table-row">
                     <td>${customer.username}</td>
                     <td>${customer.firstName}</td>
                     <td>${customer.lastName}</td>
                     <td>${customer.address}</td>
                     <td>${customer.email}</td>
+                    <td>${customer.mobile}</td>
                     <td>${customer.license}</td>
                     <td>${customer.expiryDate}</td>
-                    <td>${customer.mobile}</td>
                     <td>${customer.status}</td>
-                    <td><a href="customerDeletion/${customer.username}">Delete</a></td>
-                    <td><a href="customerUpdate/${customer.username}">Update</a></td>
+                    <td class="action-cell">
+                  <a href="/customer/update/${customer.username}" class="action-btn update-btn">Update</a>
+                  <a href="/customerDelete/${customer.username}" class="action-btn delete-btn">Delete</a>
+              </td>
                 </tr>
             </c:forEach>
         </table>
-        </h2>
+        </div>
         <br/>
+        <h3><a class="return-link" href="/index">Return</a></h3>
     </div>
 </body>
 </html>

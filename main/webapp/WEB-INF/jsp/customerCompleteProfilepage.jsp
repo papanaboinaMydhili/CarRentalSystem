@@ -11,50 +11,46 @@
 </head>
 <body>
 <div align ="center">
-    <h1><u> Customer Entry Page</u></h1>
-    <h2>
-    <form:form action="/customerAdd" method="post" modelAttribute="customerRecord">
+    <h1>Customer Entry Page</h1>
+    <form:form action="/myaccount/update" method="post" modelAttribute="customer">
     	<form:hidden path="username"/>
     	<form:hidden path="email"/>
     	<form:hidden path="status"/>
     	
-        User Name:<form:input path="username"  disabled="true"/>
+        User Name:<form:input path="username"  id="username" class="input" disabled="true"/>
         <br/><br/>
 
-        Email:<form:input path="email"  disabled="true"/>
-        <br/><br/>
-        
-
-        Enter First Name:<form:input path="firstName"  />
+        Email:<form:input path="email"   id="email" class="input"  disabled="true"/>
         <br/><br/>
         
 
-        Enter Last Name:<form:input path="lastName" />
+        Enter First Name:<form:input path="firstName" id="firstName" class="input" placeholder="First Name" />
+        <br/><br/>
+        
+
+        Enter Last Name:<form:input path="lastName" id="lastName" class="input" placeholder="Last Name"/>
         <br/><br/>
        
 
-        Enter Address:<form:input path="address"/>
+        Enter Address:<form:input path="address" id="address" class="input" placeholder="Address"/>
         <br/><br/>
         
         
-        Enter Mobile Number:<form:input path="mobile" />
+        Enter Mobile Number:<form:input path="mobile" id="mobile" class="input" placeholder="Mobile Number"/>
         <br/><br/>
         
         
-        Enter License Number:<form:input path="license" />
+        Enter License Number:<form:input path="license" id="license" class="input" placeholder="License Driving Number" />
         <br/><br/>
         
-        Status:<form:input path="status" disabled="false"/>
-  		<br/><br/>
         
         
-        Enter License Expiry Date:<form:input type="date" placeholder="dd-mm-yy" path="expiryDate" />
+        Enter License Expiry Date:<form:input  path="expiryDate" id="expiryDate" class="input" placeholder="Expiry Date" />
         <br/><br/>
                 <button type="submit">Submit</button>
                 <button type="reset">Reset</button>
         
        </form:form>
-       </h2>
        </div> 
        
        

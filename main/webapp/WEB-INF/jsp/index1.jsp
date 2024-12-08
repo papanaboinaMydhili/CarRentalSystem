@@ -114,9 +114,7 @@
             <div class="dropdown">
                 <button class="dropbtn">Customer</button>
                 <div class="dropdown-content">
-                   <!--   <a href="/customerAdd">Customer Addition</a>-->
-         
-                    <a href="/customerReport">Customer Reports</a>
+         <a href="/customerReport">Customer Reports</a>
                 </div>
             </div>
             <div class="dropdown">
@@ -126,22 +124,19 @@
                     <a href="/variantReport">Variant Reports</a>
                 </div>
             </div>
-            <div class="dropdown">
-                <button class="dropbtn">Car</button>
-                <div class="dropdown-content">
-                    <a href="/carAdd">Car Addition</a>
-                    <!-- <a href="/">Car Update</a>-->
-                     <!--<a href="/">Car Deletion</a>-->
-                    <a href="/carReport">Car Report</a>
+             <div class="dropdown">
+                    <button class="dropbtn">Car</button>
+                    <div class="dropdown-content">
+                        <a href="/carAdd">Car Addition</a>
+                        <a href="/carReport">Car Report</a>
+                    </div>
                 </div>
-            </div>
+           
             <div class="dropdown">
                 <button class="dropbtn">Booking</button>
                 <div class="dropdown-content">
-                    <a href="/">New Booking</a>
-                    <a href="/">Booking Update</a>
-                    <a href="/">Cancellation</a>
-                    <a href="/">Booking Report</a>
+                    <a href="/bookingPayments">Booking Payments</a>
+                    <a href="/bookingReport">Booking Report</a>
                 </div>
             </div>
             <a href="/logout" class="logout">Logout</a>

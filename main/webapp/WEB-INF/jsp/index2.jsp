@@ -79,44 +79,24 @@
     <h1 style="font-family:Cambria">Welcome To Car Rental Page</h1>
     <div class="navbar">
     <div class="dropdown">
-    <button class="dropbtn">Customer
-    </button>
-    <div class="dropdown-content">
-    <a href="/customerAdd">Customer Addition</a>
-    <a href="/customerUpdate">Customer Update</a>
-    <a href="/customerDelete">Customer Deletion</a>
-    <a href="/singleCustomerReport">Customer Reports</a>
-    </div>
-    </div>
-   <!--- <div class="dropdown">
-    <button class="dropbtn">Variant
-    </button>
-    <div class="dropdown-content">
-    <a href="/">Variant Addition</a>
-    <a href="/">Variant Deletion</a>
-    <a href="/">Variant Reports</a>
-    </div>
-    </div>--->
-    <div class="dropdown">
     <button class="dropbtn">Car
     </button>
     <div class="dropdown-content">
-    <!---<a href="/">Car Addition</a>
-    <a href="/">Car Update</a>
-    <a href="/">Car Deletion</a>--->
-    <a href="/carReport">Car Report</a>
+    <a href="/customerCarReport">Car Report</a>
     </div>
     </div>
+         
     <div class="dropdown">
     <button class="dropbtn">Booking
     </button>
     <div class="dropdown-content">
-    <a href="/">New Booking</a>
-    <a href="/">Booking Update</a>
-    <a href="/">Cancellation</a>
-    <!---<a href="/">Booking Report</a>-->
+    <a href="/customerCarReport">New Booking</a>
+    <a href="/bookingReport">Booking Report</a>
     </div>
     </div>
+    </div>
+    <div class="navbar navbar-right">
+     <a href="/myaccount" class="myaccount-btn">My Account</a>
     <a href="/logout">Logout</a>
     </div>
     </div>

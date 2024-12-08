@@ -4,14 +4,16 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
+import java.io.Serializable;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
 @Entity
-public class CarUser extends User {
+public class CarUser extends User implements Serializable{
+	 private static final long serialVersionUID = 1L;
+
 	
-	private static final long serialVersionUID = 1L;
     @Id
     private String username;
     private String email;

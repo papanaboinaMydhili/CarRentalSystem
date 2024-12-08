@@ -2,6 +2,9 @@ package com.infosys.carRentalSystem.controller;
 
 import com.infosys.carRentalSystem.bean.CarUser;
 import com.infosys.carRentalSystem.service.CarUserService;
+
+import jakarta.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +25,16 @@ public class LoginController {
     private CarUserService service;
     @GetMapping("/loginpage")
     public ModelAndView showLoginPage() {
-        return new ModelAndView("loginPage");
+		String username = service.getUserName();
+		ModelAndView mv= new ModelAndView("loginPage");
+		mv.addObject("userName", username);
+		return mv;
+    }
+    @GetMapping("/loginSuccess")
+    public ModelAndView loginSuccess(HttpSession session) {
+        String username = service.getUserName();
+        session.setAttribute("userName", username);
+        return new ModelAndView("redirect:/loginpage");
     }
     @GetMapping("/loginerror")
     public ModelAndView showLoginErrorPage() {
@@ -31,6 +43,17 @@ public class LoginController {
 
     @GetMapping("/index")
     public ModelAndView showIndexPage() {
+        String role = service.getRole();
+        String page = "";
+        if(role.equalsIgnoreCase("Admin"))
+            page = "index1";
+        else if(role.equalsIgnoreCase("Customer"))
+            page = "index2";
+        return new ModelAndView(page);
+    }
+    
+    @GetMapping("/")
+    public ModelAndView showHomePage() {
         String role = service.getRole();
         String page = "";
         if(role.equalsIgnoreCase("Admin"))

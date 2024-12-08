@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -84,35 +87,48 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="form-container">
         <h1>Car Entry Page</h1>
-        <form action="/carAdd" method="post">
-            <label for="carNumber">Enter Car Registration Number:</label>
-            <input type="text" id="carNumber" name="carNumber" placeholder="Enter Registration Number" class="input-box" />
+        <form:form action="/carAdd" method="post" modelAttribute="carRecord">
+         <form:hidden path="available" />
+         <label class="label" for="carNumber">Car Registration Number:</label>
+            <form:input path="carNumber" id="carNumber" class="input" placeholder="Registration number" />
+            <br /><br />
 
-            <label for="carName">Enter Car Name:</label>
-            <input type="text" id="carName" name="carName" placeholder="Enter Car Name" class="input-box" />
+            <label class="label" for="carName">Enter Car Name:</label>
+            <form:input path="carName" id="carName" class="input" placeholder="Car name"/>
+            <br /><br />
 
-            <label for="carColor">Enter Car Color:</label>
-            <input type="text" id="carColor" name="carColor" placeholder="Enter Car Color" class="input-box" />
+            <label class="label" for="carColor">Enter Car Color:</label>
+            <form:input path="carColor" id="carColor" class="input" placeholder="Car color" />
+            <br /><br />
 
-            <label for="manufacturer">Enter Manufacturer Name:</label>
-            <input type="text" id="manufacturer" name="manufacturer" placeholder="Enter Manufacturer Name" class="input-box" />
+            <label class="label" for="manufacturer">Enter Car Manufacturer Name:</label>
+            <form:input path="manufacturer" id="manufacturer" class="input" placeholder="Manufacturer name" />
+            <br /><br />
 
-            <label for="yearOfMfg">Enter Year of Manufacture:</label>
-            <input type="number" id="yearOfMfg" name="yearOfMfg" placeholder="Enter Year" min="1886" max="2024" class="input-box" />
+            <label class="label" for="yearOfMfg">Enter Year of manufacturing:</label>
+            <form:input path="yearOfMfg" id="yearOfMfg" class="input" placeholder="Year of manufacturing" />
+            <br /><br />
 
-            <label for="rentRate">Enter Rent Rate per Hour:</label>
-            <input type="number" id="rentRate" name="rentRate" placeholder="Enter Rent Rate" step="0.01" min="0" class="input-box" />
+            <label class="label" for="rentRate">Enter Rent rate per hour:</label>
+            <form:input path="rentRate" id="rentRate" class="input" placeholder="Rent rate per hour" />
+            <br /><br />
 
-            <label for="variantId">Select Variant ID:</label>
-            <input type="text" id="variantId" name="variantId" placeholder="Enter Variant ID" class="input-box" />
-
-            <div class="button-container">
-                <button type="submit">Submit</button>
-                <button type="reset">Reset</button>
+            <div class="variantIdContainer">
+                <label class="label" for="variantId">Select Variant:</label>
+                <form:select path="variantId" class="input variantId" id="carVariantId">
+                    <form:option value="" label="Select Variant Id" disabled="true" />
+                    <c:forEach items="${variantIdList}" var="vids">
+                        <form:option value="${vids}">${vids}</form:option>
+                    </c:forEach>
+                </form:select>
             </div>
-        </form>
+
+            <button class="submit-button btn" type="submit">Submit</button>
+            <button class="reset-button btn" type="reset">Reset</button>
+        </form:form>
+            
     </div>
 </body>
 </html>

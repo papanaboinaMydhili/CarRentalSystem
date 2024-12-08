@@ -6,7 +6,7 @@ import jakarta.persistence.Id;
 @Entity
 public class CarBooking {
 		@Id
-		private Long bookingId;
+		private String bookingId;
 		private String username;
 		private String license;
 		private String carNumber;
@@ -17,26 +17,26 @@ public class CarBooking {
 		private Double advancePayment;
 		private Double pendingPayment;
 		private String transactionId;
-		private Boolean status;
+		private String status;
 		
 		public CarBooking() {
 			super();
 			
 		}
 		
-		public CarBooking(Long bookingId) {
+		public CarBooking(String bookingId) {
 			super();
 			this.bookingId=bookingId;
-			this.status=false;
-			this.pendingPayment=0.0;
+			this.status="p";
 		}
 		
 		
-		public CarBooking(Long bookingId, String username, String license,String carNumber, String variantId, String fromDate,
-				String toDate, Double totalPayment, Double advancePayment, Double pendingPayment, String transaction,Boolean status) {
+		public CarBooking(String bookingId, String username, String license,String carNumber, String variantId, String fromDate,
+				String toDate, Double totalPayment, Double advancePayment, Double pendingPayment, String transactionId,String status) {
 			super();
 			this.bookingId = bookingId;
 			this.username = username;
+		     this.license = license;
 			this.carNumber = carNumber;
 			this.variantId = variantId;
 			this.fromDate = fromDate;
@@ -44,13 +44,27 @@ public class CarBooking {
 			this.totalPayment = totalPayment;
 			this.advancePayment = advancePayment;
 			this.pendingPayment = pendingPayment;
+			this.transactionId = transactionId;
 			this.status = status;
 		}
 		
-		public Long getBookingId() {
+		public CarBooking(String bookingId, String username, String license, String carNumber, String variantId) {
+	        this.bookingId = bookingId;
+	        this.username = username;
+	        this.license = license;
+	        this.carNumber = carNumber;
+	        this.variantId = variantId;
+
+	        this.status = "P";
+	        this.transactionId = "";
+	        this.pendingPayment = 0.0;
+	        this.totalPayment = 0.0;
+	    }
+		
+		public String getBookingId() {
 			return bookingId;
 		}
-		public void setBookingId(Long bookingId) {
+		public void setBookingId(String bookingId) {
 			this.bookingId = bookingId;
 		}
 		public String getUsername() {
@@ -101,20 +115,45 @@ public class CarBooking {
 		public void setPendingPayment(Double pendingPayment) {
 			this.pendingPayment = pendingPayment;
 		}
-		public Boolean getStatus() {
+		public String getStatus() {
 			return status;
 		}
-		public void setStatus(Boolean status) {
+		public void setStatus(String status) {
 			this.status = status;
 		}
+		
+		 public String getTransactionId() {
+		        return transactionId;
+		    }
+
+		    public void setTransactionId(String transactionId) {
+		        this.transactionId = transactionId;
+		    }
+
+		    public String getLicense() {
+		        return license;
+		    }
+
+		    public void setLicense(String license) {
+		        this.license = license;
+		    }
 		@Override
 		public String toString() {
-			return "CarBooking [bookingId=" + bookingId + ", username=" + username + ", carNumber=" + carNumber
-					+ ", variantId=" + variantId + ", fromDate=" + fromDate + ", toDate=" + toDate + ", totalPayment="
-					+ totalPayment + ", advancePayment=" + advancePayment + ", pendingPayment=" + pendingPayment
-					+ ", status=" + status + "]";
-		}
-		
-		
-		
+			return "CarBooking{" +
+	                "bookingId=" + bookingId +
+	                ", username='" + username + '\'' +
+	                ", carNumber='" + carNumber + '\'' +
+	                ", variantId='" + variantId + '\'' +
+	                ", fromDate='" + fromDate + '\'' +
+	                ", toDate='" + toDate + '\'' +
+	                ", totalPayment=" + totalPayment +
+	                ", advancePayment=" + advancePayment +
+	                ", pendingPayment=" + pendingPayment +
+	                ", transactionId='" + transactionId + '\'' +
+	                ", status=" + status +
+	                '}';
+	    }
 }
+		
+		
+		

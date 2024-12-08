@@ -10,22 +10,21 @@
 </head>
 <body>
 <div align="center">
-<h1><u>Car Variant Entry Page</u></h1>
-<h2>
+<h1>Car Variant Entry Page</h1>
 <form:form action="/variantAdd" method="post" modelAttribute="variantRecord">
 <form:hidden path="variantId"/>
-Variant Id:<form:input path="variantId" disabled="true"/>
+Variant Id:<form:input path="variantId" id="variantId" class="input" disabled="true"/>
 <br/><br/>
-Enter Variant Name: <form:input path="variantName"/>
+Enter Variant Name: <form:input path="variantName" class="input" placeholder="Variant name" />
 <br/><br/>
-Enter Number of seats:<form:input path="numberOfSeat"/>
+Enter Number of seats:<form:input path="numberOfSeat"  id="numberOfSeat" class="input" placeholder="No. of seats"/>
 <br/><br/>
-Enter Type of Fuel:<form:input path="fuel"/>
+Enter Type of Fuel:<form:input path="fuel"  id="fuel" class="input" placeholder="Fuel type"/>
 <br/><br/>
 <button type="submit">Submit</button>
 <button type="reset">Reset</button>
 </form:form>
-</h2>
+
 </div>
 </body>
 </html>

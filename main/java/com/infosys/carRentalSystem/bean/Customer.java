@@ -2,11 +2,11 @@ package com.infosys.carRentalSystem.bean;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import org.springframework.security.core.GrantedAuthority;
+/*import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.Collection;*/
 
 @Entity
 public class Customer  {
